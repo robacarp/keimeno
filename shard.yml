@@ -1,0 +1,9 @@
+name: keimeno
+version: 0.1.0
+
+authors:
+  - Robert L Carpenter <robert@robacarp.com>
+
+crystal: 0.26.0
+
+license: MIT
