@@ -2,14 +2,16 @@
 
 A lightweight and simple, native crystal library for interactive command line interfaces.
 
+![FZF like demo](https://i.imgur.com/fAvTkUl.gifv)
+
 ## Installation
 
 Update your shard.yml to include keymeno
 
-```yaml
+```diff
 dependencies:
-  keimeno:
-    github: robacarp/keimeno
++  keimeno:
++    github: robacarp/keimeno
 ```
 
 ## Usage
