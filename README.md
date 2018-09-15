@@ -2,7 +2,7 @@
 
 A lightweight and simple, native crystal library for interactive command line interfaces.
 
-![FZF like demo](https://i.imgur.com/DiZ2QQz.gif)
+[FZF like demo](https://i.imgur.com/DiZ2QQz.gifv)
 
 ## Installation
 
