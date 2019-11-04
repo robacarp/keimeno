@@ -4,7 +4,7 @@ module Keimeno
 
     getter question, character_filter
 
-    def initialize(@question : String, @character_filter = /[A-Za-z0-9._!?@#$%^&*()-]/)
+    def initialize(@question : String, @character_filter = /[A-Za-z0-9._!?@#$%^&*()-]|\s/)
     end
 
     def display
