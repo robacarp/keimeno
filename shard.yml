@@ -1,14 +1,14 @@
 name: keimeno
-version: 0.1.0
+version: 0.2.0
 
 authors:
   - Robert L Carpenter <robert@robacarp.com>
 
-crystal: 0.29.0
+crystal: 0.31.0
 
 license: MIT
 
 development_dependencies:
   minitest:
     github: ysbaddaden/minitest.cr
-    version: ~> 0.4.2
+    version: ~> 0.5.0
