@@ -8,13 +8,15 @@ module Keimeno
     include TextInput
 
     getter heading
-    getter options
-    getter matches = [] of String
+    getter options = [] of String
+    getter matches = [] of Match
     getter choice : String?
+    getter choice_index = -1
 
     private property cursor_position = -1
 
     def initialize(@heading : String, @options : Array(String))
+      @choice_index = -1
     end
 
     def formatted_options
@@ -46,8 +48,14 @@ module Keimeno
       Matcher.search(o).for(input_text)
     end
 
+    def match?(o : Match) : Bool
+      match? o.text
+    end
+
     def build_matches
-      @matches = options.select { |o| match? o }
+      @matches = options.map_with_index do |o, i|
+        Match.new o, i
+      end.select { |o| match? o }
     end
 
     def multiple_matches?
@@ -80,12 +88,12 @@ module Keimeno
       if cursor_active?
         finish!
         @choice = options[cursor_position]
+        @choice_index = cursor_position
       else
-        case matches.size
-        when .>(1)
-        when .==(1)
+        unless multiple_matches?
           finish!
-          @choice = matches.first
+          @choice = matches.first.text
+          @choice_index = matches.first.index
         end
       end
     end
