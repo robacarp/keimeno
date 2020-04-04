@@ -10,7 +10,6 @@ class DirectoryNavigator < Keimeno::Menu
     @current_dir = Dir.new @base_dir
     @heading = ""
     @options = [] of String
-    @matches = [] of String
 
     repopulate_options
   end
@@ -113,7 +112,7 @@ class DirectoryNavigator < Keimeno::Menu
     if cursor_active?
       switch_directory options[cursor_position]
     elsif matches.size == 1
-      switch_directory matches.first
+      switch_directory matches.first.text
     end
 
     finish!
@@ -144,7 +143,7 @@ parser = OptionParser.new do |parser|
   end
 end
 
-parser.parse!
+parser.parse
 
 navigator = DirectoryNavigator.new(directory)
 navigator.full_screen = true

@@ -8,6 +8,12 @@ crystal: 0.31.0
 
 license: MIT
 
+targets:
+  fuzzy_navigator:
+    main: demo/fuzzy_navigator.cr
+  hello_world:
+    main: demo/hello_world.cr
+
 development_dependencies:
   minitest:
     github: ysbaddaden/minitest.cr

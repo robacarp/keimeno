@@ -8,7 +8,8 @@ module Keimeno
     end
 
     def display
-      print "#{question} #{input_text}"
+      print question
+      print " "
     end
 
     def key_enter

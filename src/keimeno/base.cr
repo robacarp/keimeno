@@ -92,32 +92,37 @@ module Keimeno
     {% begin %}
       {%
        special_keys = [
-         :ctrl_a,
-         :ctrl_b,
-         :ctrl_c,
-         :ctrl_d,
-         :ctrl_e,
-         :ctrl_f,
-         :ctrl_g,
-         :ctrl_h,
-         :ctrl_i,
-         :ctrl_j,
-         :ctrl_k,
-         :ctrl_l,
-         :enter,
-         :ctrl_n,
-         :ctrl_o,
-         :ctrl_p,
-         :ctrl_q,
-         :ctrl_r,
-         :ctrl_s,
-         :ctrl_t,
-         :ctrl_u,
-         :ctrl_v,
-         :ctrl_w,
-         :ctrl_x,
-         :ctrl_y,
+         :ctrl_a, :ctrl_b, :ctrl_c, :ctrl_d,
+         :ctrl_e, :ctrl_f, :ctrl_g, :ctrl_h,
+         :ctrl_i, :ctrl_j, :ctrl_k, :ctrl_l,
+         :ctrl_n, :ctrl_o, :ctrl_p, :ctrl_q,
+         :ctrl_r, :ctrl_s, :ctrl_t, :ctrl_u,
+         :ctrl_v, :ctrl_w, :ctrl_x, :ctrl_y,
          :ctrl_z,
+
+         :alt_a, :alt_b, :alt_c, :alt_d,
+         :alt_e, :alt_f, :alt_g, :alt_h,
+         :alt_i, :alt_j, :alt_k, :alt_l,
+         :alt_m, :alt_n, :alt_o, :alt_p,
+         :alt_q, :alt_r, :alt_s, :alt_t,
+         :alt_u, :alt_v, :alt_w, :alt_x,
+         :alt_y, :alt_z,
+
+         :alt_1, :alt_2, :alt_3,
+         :alt_4, :alt_5, :alt_6,
+         :alt_7, :alt_8, :alt_9,
+         :alt_0, :alt_tilde,
+
+         :alt_tab, :alt_space, :alt_enter,
+
+         :alt_left_square_bracket, :alt_right_square_bracket,
+         :alt_left_curly_bracket,  :alt_right_curly_bracket,
+
+         :alt_period, :alt_greater_than,
+         :alt_comma, :alt_less_than,
+         :alt_double_quote, :alt_quote,
+
+         :enter,
          :backspace,
          :delete,
          :up_arrow,
@@ -278,6 +283,11 @@ module Keimeno
       print ';'
       print col
       print 'H'
+    end
+
+    def bump_cursor(row = 0, col = 0)
+      current_row, current_col = request_cursor_position
+      set_cursor_position current_row + row, current_col + col
     end
 
     def maintain_saved_cursor
